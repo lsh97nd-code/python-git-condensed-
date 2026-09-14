@@ -76,9 +76,22 @@ python .\hello.py
 Hello
 ```
 
+### 개발 환경 설정 및 Python 실행 증빙
+
 ![개발 환경 설정 및 Python 실행 확인](images/01-development-environment.png)
 
 **그림 1. Python·Git 환경 설정, `git init`, `main` Branch 및 Python 실행 확인**
+
+**이 화면으로 확인할 수 있는 평가 항목**
+
+- Python 3.14.7 설치 및 버전 확인
+- Git 2.55.0.windows.4 설치 및 버전 확인
+- `git config --global user.name` 설정값 확인
+- `git config --global user.email` 설정값 확인
+- 기본 Branch 이름이 `main`으로 설정되었는지 확인
+- `git init`을 통한 로컬 Git Repository 초기화
+- 현재 Branch가 `main`인지 확인
+- `hello.py` 실행 후 `Hello` 출력 확인
 
 ---
 
@@ -461,6 +474,29 @@ git fetch origin
 ```
 
 이 과정에서 `--ff-only`를 사용하여 불필요한 Merge Commit 없이 원격의 선행 Commit까지 `main`을 Fast-forward했습니다.
+
+---
+
+
+### 중복 제목 처리 정책
+
+현재 프로그램은 **동일한 제목의 프롬프트 등록을 허용**합니다.
+
+프롬프트를 추가할 때 제목의 중복 여부를 검사하지 않고 새로운 Dictionary를 List에 별도 항목으로 추가합니다.
+
+같은 제목이라도 내용이나 카테고리, 활용 목적이 다를 수 있다고 판단했기 때문입니다.
+
+따라서 중복 제목 입력 시:
+
+- 기존 데이터를 덮어쓰지 않습니다.
+- 입력을 거부하지 않습니다.
+- 제목 뒤에 자동 번호를 붙이지 않습니다.
+- 각각 별도의 프롬프트로 List에 추가됩니다.
+- 목록에 부여되는 프롬프트 번호로 각 항목을 구분합니다.
+- 상세 보기·수정·삭제·즐겨찾기는 제목이 아니라 프롬프트 번호를 기준으로 처리합니다.
+
+향후 확장 시에는 중복 제목 경고, 등록 거부, 자동 번호 부여 등의 정책을 선택적으로 추가할 수 있습니다.
+
 
 ---
 
